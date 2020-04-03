@@ -18,7 +18,17 @@ from django.urls import path
 from hamahang import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',views.index,name='index' ),
-    path('rents/',views.rents,name='rents')
+    path('admin/', admin.site.urls,name='admin'),
+    path('',views.index,name='index'),
+    path('index/',views.index,name='index'),
+    path('sale/',views.vw_sale,name='sale'),
+    path('rents/',views.vw_rents,name='rents'),
+    path('sale_apartement/',views.vw_apartement,name='sale_apartement'),
+    path('sale_home/',views.vw_home,name='sale_home'),
+    path('sale_land/',views.vw_land,name='sale_land'),
+    path('participation/',views.vw_participation,name='participation'),
+    path('Contact/',views.vw_Contact,name='Contact'),
+    path('kish/',views.vw_kish,name='kish'),
+    path('georgin/',views.vw_georgin,name='georgin'),
+    path('mashhad/',views.vw_mashhad,name='mashhad'),
 ]

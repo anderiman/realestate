@@ -60,7 +60,7 @@ class mdl_rent(models.Model):
 
 
     def __str__(self):
-            return self.topic
+        return self.topic
  
     
 
@@ -77,3 +77,14 @@ class mdl_participation(models.Model):
 
     def __str__(self):
             return self.topic
+
+
+class mdl_Contact(models.Model):
+
+    first_name=models.CharField(max_length=300) 
+    last_name=models.CharField(max_length=300) 
+    subject=models.TextField(max_length=4000)
+
+    def __str__(self):
+        return self.subject
+
