@@ -2,93 +2,88 @@
 {% load static %} 
 {% block content %}
 
-<head>
 
-<style>
 
-input[type=text], select, textarea {
-  width: 100%; /* Full width */
-  padding: 12px; /* Some padding */ 
-  border: 1px solid #ccc; /* Gray border */
-  border-radius: 4px; /* Rounded borders */
-  box-sizing: border-box; /* Make sure that padding and width stays in place */
-  margin-top: 10px; /* Add a top margin */
-  margin-bottom: 16px; /* Bottom margin */
-  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
-}
 
-/* Style the submit button with a specific background color etc */
-input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
 
-/* When moving the mouse over the submit button, add a darker green color */
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-/* Add a background color and some padding around the form */
-.container {
-  border-radius:2px;
-  background-color: #f2f2f2;
-  padding: 10px;
-}
-
-.text {
-  text-align:center;
-  position: relative;
-  top:-110%;
-  left:200%;
-  transform: translate(-50%, -50%);
-  color: black;
-}
-
-</style>
-</head>
-<body>
-<div class="container">
-    <div   class="col-lg-6 col-md-9 col-sm-6 col-sx-12 pull-right"  >
-        <div class="row" style="margin-top:62px;" >
-            <form action="action_page.php"  method="post">
-            
-        
-
-                    <label for="fname">نام</label>
-                    <input type="text" id="fname" name="firstname" placeholder="نام شما...">
-                    <label for="lname">نام خانوادگی</label>
-                    <input type="text" id="lname" name="lastname" placeholder="نام خانوادگی شما...">
-                    <label for="mnum">شماره تماس</label>
-                    <input type="mobilenumber" id="mnum" name="mobilenumber" placeholder="شماره تماس شما..."><br>
-                    <label for="subject">موضوع</label>
-                    <textarea id="subject" name="subject" placeholder="اینجا بنویسید..." style="height:200px"></textarea>
-                    
-
-                    <input type="submit" value="Submit">
-
-                   
-
-            </form>
-             
-                    <div class="row" >
-                        <div class="text">
-                            <h1>گروه مشاورین املاک هما هنگ</h1><br>
-                            <p>mobile : 09152288566</p><br>
-                            <p>office num: 05138229578</p><br>
-                            <p>ادرس : سرافرازان52-نبش خسروی1-املاک هماهنگ</p>
-                        </div>
-                    </div>
-                   
-        </div>
-    </div>
+ 
+ <!-- Material form contact -->
+<div class="row">
+<div  class="col">
+<div class="card">
+<div class="col" >
+<div class="card text-white bg-success mb-100" style="max-width: 100rem;  max-hight:30rem; text-align:center">
+  
+  <div class="card-body">
+    <h5 class="card-title">گروه مشاورین املاک هماهنگ </h5>
+    <p class="card-text">آدرس : مشهد خیابان سرافرازان 52 -نبش خسروی 1- املاک هماهنگ</p>
+    <p class="card-text">تلفن همراه: 09152288566</p>
+     <p class="card-text"> تلفن دفتر :05138229578 </p>
+  </div>
+  
 </div>
-</body>
+</div>
+
+    <h5 class="card-header info-color white-text text-center py-4">
+        <strong> تماس با ما</strong>
+    </h5>
+
+    <!--Card content-->
+    <div class="card-body px-lg-5 pt-0">
+
+        <!-- Form -->
+        <form class="text-center" style="color: #757575;" action="{% url 'Contact'%}" method="post" >{% csrf_token %}
+            {{ ContactForm }}
+            <!-- Name -->
+            <div class="md-form mt-3">
+                <input type="text" id="materialContactFormName" class="form-control" placeholder="نام شما...">
+                <label for="materialContactFormName">نام</label>
+            </div>
+             <div class="md-form mt-3">
+                <input type="text" id="materialContactFormName" class="form-control" placeholder="نام خانوادگی شما...">
+                <label for="materialContactFormName">نام خانوادگی</label>
+            </div>
+             <div class=" row md-form mt-3  align-items-center">
+             <div class="col-sm-4 my-1 ">
+            
+                <input type="text" id="materialContactFormName" class="form-control" placeholder="شماره تماس شما...">
+                <label for="materialContactFormName"> شماره تماس </label>
+            </div>
+            </div>
+            <br>
+            <!-- Subject -->
+            <span>موضوع</span>
+            <select class="mdb-select">
+                <option value="" disabled>انتخاب موضوع</option>
+                <option value="1" selected>بازخورد</option>
+                <option value="2"> معرفی ملک </option>
+                <option value="3"> درخواست ملک</option>
+                <option value="4">دیگر </option>
+            </select>
+
+            <!--Message-->
+            <div class="md-form">
+                <textarea id="materialContactFormMessage" class="form-control md-textarea" rows="3" placeholder="توضیحات خود را در اینجا بنویسید..."></textarea>
+                <label for="materialContactFormMessage"></label>
+            </div>
+
+            <!-- Copy -->
+           
+
+            <!-- Send button -->
+            <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">ارسال</button>
+
+        </form>
+        <!-- Form -->
+   
+    </div>
+
+</div>
+</div>
+</div>
+
+
+<!-- Material form contact -->
 
 
 {% endblock content %}
-
-

@@ -1,8 +1,11 @@
-#rom django import forms
+from django import forms
 
-#from django import forms
+from .models import mdl_Contact
 
-#class ContactForm(forms.Form):
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model=mdl_Contact
+        fields=["first_name","last_name","mobile","subject"]
 
 #    def __init__(self):
 #        super(ContactForm, self).__init__()

@@ -12,11 +12,11 @@
         {% for rents in rents %}
             <div class="col-md-4">
                 <div class="card mb-2">
-                    <img class="card-img-top" src="{% static rents.img %}">
+                    <img class="card-img-top" src="{% static participation.img %}">
                         <div class="card-body">
-                            <h5 class="card-title">{{ rents.topic }}</h5>
-                            <p class="card-text">{{ rents.text }}</p>
-                            <a href="{% url 'rents' %}"
+                            <h5 class="card-title">{{ participation.topic }}</h5>
+                            <p class="card-text">{{ participation.text }}</p>
+                            <a href="{% url 'participation' %}"
                                 class="btn btn-primary">
                                 Read More
                             </a>

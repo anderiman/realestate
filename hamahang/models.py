@@ -16,10 +16,10 @@ class mdl_sale(models.Model):
 class mdl_apartement(models.Model):
     
     apartement = models.ForeignKey(mdl_sale, on_delete=models.CASCADE)
-    img =models.ImageField()
-    topic =models.CharField( max_length=300)
-    text =models.TextField(max_length=1000)
-    date = models.DateTimeField()
+    img =models.ImageField(null=True)
+    topic =models.CharField( max_length=300,null=True)
+    text =models.TextField(max_length=1000,null=True)
+    date = models.DateTimeField(null=True)
 
     def __str__(self):
         return self.topic
@@ -27,11 +27,11 @@ class mdl_apartement(models.Model):
 
 class mdl_land(models.Model):
     
-    land = models.ForeignKey(mdl_sale, on_delete=models.CASCADE)
-    img =models.ImageField()
-    topic =models.CharField( max_length=300)
-    text =models.TextField(max_length=1000)
-    date = models.DateTimeField()
+    land = models.ForeignKey(mdl_sale, on_delete=models.CASCADE,null=True)
+    img =models.ImageField(null=True)
+    topic =models.CharField( max_length=300,null=True)
+    text =models.TextField(max_length=1000,null=True)
+    date = models.DateTimeField(null=True)
 
     def __str__(self):
         return self.topic
@@ -40,11 +40,11 @@ class mdl_land(models.Model):
 
 class mdl_home(models.Model):
     
-    home = models.ForeignKey(mdl_sale, on_delete=models.CASCADE)
-    img =models.ImageField()
-    topic =models.CharField( max_length=300)
-    text =models.TextField(max_length=1000)
-    date = models.DateTimeField()
+    home = models.ForeignKey(mdl_sale, on_delete=models.CASCADE,null=True)
+    img =models.ImageField(null=True)
+    topic =models.CharField( max_length=300,null=True)
+    text =models.TextField(max_length=1000,null=True)
+    date = models.DateTimeField(null=True)
 
     def __str__(self):
         return self.topic
@@ -52,9 +52,9 @@ class mdl_home(models.Model):
    
 class mdl_rent(models.Model):
     
-    img = models.FilePathField(path="/images")
-    topic =models.CharField( max_length=300)
-    text =models.TextField(max_length=1000)
+    img =models.ImageField(null=True)
+    topic =models.CharField( max_length=300,null=True)
+    text =models.TextField(max_length=1000,null=True)
     date = models.DateTimeField(null=True)
 
 
@@ -68,10 +68,10 @@ class mdl_rent(models.Model):
 
 class mdl_participation(models.Model):
     
-    img =models.ImageField()
-    topic =models.CharField( max_length=300)
-    text =models.TextField(max_length=1000)
-    date = models.DateTimeField()
+    img =models.ImageField(null=True)
+    topic =models.CharField( max_length=300,null=True)
+    text =models.TextField(max_length=1000,null=True)
+    date = models.DateTimeField(null=True)
 
 
 
@@ -81,9 +81,11 @@ class mdl_participation(models.Model):
 
 class mdl_Contact(models.Model):
 
-    first_name=models.CharField(max_length=300) 
-    last_name=models.CharField(max_length=300) 
-    subject=models.TextField(max_length=4000)
+    first_name=models.CharField(max_length=300,null=True) 
+    last_name=models.CharField(max_length=300,null=True) 
+    mobile= models.CharField(max_length=12, null=True)
+    subject=models.TextField(max_length=4000,null=True)
+    
 
     def __str__(self):
         return self.subject

@@ -1,7 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render 
 from . import  models
 #from hamahang.forms import forms
 #from hamahang.forms import frm_Contact
+from .forms import ContactForm
+from django.http import HttpResponseRedirect
+from hamahang.models import mdl_Contact
+
+
+
+
 
 def index(request):
     return render(request,
@@ -70,17 +77,36 @@ def vw_participation(request):
 
 
 
+
 def vw_Contact(request):
-    Contacts=models.mdl_Contact.objects.all()
-    if request.method=='POST':
+    #notes=mdl_Contact.objects.all()
+    form=ContactForm(request.POST or None)
+    msg=None
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            msg= "ارسال شد در اولین فرصت با شما تماس گرفته میشود"
+        else:
+            msg="لطفا تمام موارد را پرکنید"
+    
+
+    
+    context={'form':form }
+
+    return render(request,"Contact.html",context)
+    
+
+    #Contacts=models.mdl_Contact.objects.all()
+    #if request.method=='POST':
        
-        return render(request,
-        "Contact.html",
-        context={'Contacts':Contacts}
-         )
-    else:
-        return render(request,
-        "Contact.html",)
+
+       #"Contact.html",
+       # context={'Contacts':Contacts}
+         
+    #else:
+        
+
+
 
 
 def vw_kish(request):
@@ -92,5 +118,3 @@ def vw_georgin(request):
 
 def vw_mashhad(request):
     return render(request,'mashhad.html')
-
- 

@@ -1,0 +1,105 @@
+{% extends 'base.html'%}
+{% load static %} 
+{% block content %}
+
+<head>
+{% block stylesheet %}
+        
+        
+        
+<style>
+
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px  #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top:2px; /* Add a top margin */
+  margin-bottom: 0px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+  border-radius:2px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.text {
+  text-align:center;
+  position: relative;
+  top:-110%;
+  left:200%;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+
+</style>
+{% endblock %}
+</head>
+<body>
+<div class="container">
+    <div   class="col-lg-6 col-md-9 col-sm-6 col-sx-12 pull-right"  >
+        <div class="row"  >
+            <form action="{% url 'Contact'%}" method="post" >{% csrf_token %}
+            
+            
+
+
+            
+        
+
+                    <label for="fname"> نام </label>
+                    <input type="text" id="fname" name="firstname" placeholder="نام شما...">
+                    <label for="lname">نام خانوادگی</label>
+                    <input type="text" id="lname" name="lastname" placeholder="نام خانوادگی شما..."><br>
+                    <label for="mnum">شماره تماس</label><br>
+                    <input type="mobilenumber" id="mnum" name="mobilenumber" placeholder="شماره تماس شما..."><br>
+                    <label for="subject">موضوع</label>
+                    <textarea id="subject" name="subject" placeholder="اینجا بنویسید..." style="height:200px"></textarea>
+                    
+                    
+                    <input   type="submit" value="send">
+
+                    
+                    
+
+                   
+
+            </form>
+             
+                    <div class="row" >
+                        <div class="text">
+                            <h1>گروه مشاورین املاک هما هنگ</h1><br>
+                            <p>همراه : 09152288566</p><br>
+                            <p>  دفتر: 05138229578</p><br>
+                            <p>ادرس : سرافرازان52-نبش خسروی1-املاک هماهنگ</p>
+                        </div>
+                    </div>
+                   
+        </div>
+    </div>
+</div>
+</body>
+
+
+{% endblock content %}
+
+
